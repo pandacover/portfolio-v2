@@ -1,0 +1,51 @@
+.container {
+    margin-top: 10rem;
+    text-align: center;
+
+    & * {
+        font-family: "Poppins", sans-serif;
+    }
+
+    form {
+        & * {
+            font-size: .8rem;
+        }
+
+        gap: 2rem;
+        margin: 0 auto;
+        margin-top: 6rem;
+        max-width: 30%;
+        flex-direction: column;
+
+        textarea {
+            resize: none;
+            height: 10rem;
+        }
+
+        button {
+            color: #fff;
+            margin: 0 auto;
+            border-radius: 2rem;
+            max-width: 8rem;
+            padding: .4rem 3rem;
+            background: var(--blue-light);
+            transition: background-color 150ms linear;
+        }
+
+        button:hover {
+            background: var(--blue-dark);
+        }
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .container form {
+        max-width: 40%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .container form {
+        max-width: 60%;
+    }
+}
