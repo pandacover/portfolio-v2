@@ -1,0 +1,82 @@
+.container {
+    margin-top: 6rem;
+    padding: 2em 4em 0 4em;
+
+    &.true {
+        color: #fff;
+    }
+
+    .title {
+        text-align: center;
+    }
+}
+
+.skillWrapper {
+    gap: 4em;
+    width: 80%;
+    height: 100%;
+    display: flex;
+    padding: 2rem;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    margin-top: 4rem;
+    justify-content: space-around;
+}
+
+
+/* Card Style */
+.card {
+    width: 16rem;
+    padding: 1rem;
+    min-height: 20rem;
+    background-color: rgba(248, 246, 246);
+    box-shadow: 0 0 4px 2px #0003;
+
+    h3 {
+        font-size: 1.6rem;
+        text-align: center;
+    }
+
+    p {
+        letter-spacing: .05rem;
+        font-size: .9rem;
+        padding: 1.6rem 0 1.6rem 1rem;
+
+    }
+}
+
+/* Dark Mode */
+.container.true .card {
+    background-color: #000;
+}
+
+/* Media Queries */
+@media only screen and (max-width: 928px) {
+    .skillWrapper {
+        width: 100%;
+        padding: 1rem;
+    }
+
+}
+
+@media only screen and (max-width: 410px) {
+
+    .skillWrapper {
+        padding: 0;
+    }
+
+    .card {
+        width: 100%;
+
+        h3 {
+            font-size: 1.1rem;
+        }
+
+        p {
+            font-size: .7rem;
+            letter-spacing: auto;
+            padding: 1rem 0;
+        }
+
+    }
+}

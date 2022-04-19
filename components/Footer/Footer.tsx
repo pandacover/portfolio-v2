@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
+import ThemeContext from "../Context/theme-context";
 import footerStyles from "../../styles/Footer.module.scss";
 
-const Footer: React.FC<{ darkMode: boolean }> = ({ darkMode }) => {
+const Footer: React.FC = () => {
+    const { darkMode } = useContext(ThemeContext);
     return (
         <div className={`${footerStyles.container} ${footerStyles[darkMode.toString()]}`}>
             <footer className={footerStyles.footer}>

@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { NextPage } from "next";
-import { About, Contact, Work } from "../components";
+import { About, Contact, Skills, Work } from "../components";
 import React from "react";
 
 interface Props {
@@ -17,6 +17,7 @@ const Home: NextPage<Props> = (props) => {
       </Head>
       <About darkMode={props.darkMode} />
       <Work darkMode={props.darkMode} />
+      <Skills darkMode={props.darkMode} />
       <Contact />
     </div>
   )

@@ -1,17 +1,38 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 import NavItems from "./NavItems";
 import headerStyles from "../../styles/Header.module.scss";
+import { IoSunny, IoMoon } from "react-icons/io5";
+import ThemeContext from '../Context/theme-context';
 
-interface ActionInterface {
+interface Props {
     darkMode: boolean,
     setDarkMode: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-type ActionType = {
-    actions: ActionInterface
+interface LinksProps {
+    onClick: (e: React.MouseEvent<HTMLButtonElement, MouseEvent> | any) => void
 }
 
-const Header: React.FC<ActionType> = ({ actions: { darkMode, setDarkMode } }) => {
+const HeaderLinks: React.FC<LinksProps> = ({ onClick }) => (
+    <ul className={`${headerStyles.nav} flex`}>
+        <li className={`li ${headerStyles.title}`}>
+            <span>LUV</span>
+        </li>
+        {NavItems.map(items => (
+            <li key={items._id} className={`li ${headerStyles.navList}`}>
+                <button onClick={onClick} value={items.link} className="btn">
+                    {items.name}
+                </button>
+            </li>
+        ))}
+        <li className={`li ${headerStyles.navList}`}>
+            <a href="https://github.com/pandacover/portfolio-v2/">Source</a>
+        </li>
+    </ul>
+)
+
+const Header: React.FC = () => {
+    const { darkMode, setDarkMode } = useContext(ThemeContext);
 
     useEffect(() => {
         if (window.localStorage.length === 0) return;
@@ -39,27 +60,19 @@ const Header: React.FC<ActionType> = ({ actions: { darkMode, setDarkMode } }) =>
 
     return (
         <header id="about" className={headerStyles.header}>
-            <div className={`${headerStyles["fixed-container"]} ${headerStyles[darkMode.toString()]}`}>
+            <div className={`${headerStyles.fixedContainer} ${headerStyles[darkMode.toString()]}`}>
                 <nav className={`${headerStyles.navbar} flex ${headerStyles[darkMode.toString()]}`}>
-                    <ul className={`${headerStyles.nav} flex`}>
-                        <li className={`li ${headerStyles.title}`}>
-                            <span>L</span>
-                        </li>
-                        {NavItems.map(items => (
-                            <li key={items._id} className={`li ${headerStyles["nav-list"]}`}>
-                                <button onClick={scrollHandler} value={items.link} className="btn">
-                                    {items.name}
-                                </button>
-                            </li>
-                        ))}
-                        <li className={`li ${headerStyles["nav-list"]}`}>
-                            <a href="https://github.com/pandacover/portfolio-v2/">Source</a>
-                        </li>
-                    </ul>
-                    <div className={`${headerStyles["theme-btn--container"]} flex`}>
-                        <button className={`btn ${headerStyles["theme-btn"]} toggle ${headerStyles[darkMode.toString()]}`} onClick={toggleMode}>
+                    <HeaderLinks onClick={scrollHandler} />
+                    <div className={`${headerStyles.themeBtnWrapper} flex`}>
+                        <div className={headerStyles.themeBtnLight}>
+                            <IoSunny />
+                        </div>
+                        <button className={`btn ${headerStyles.themeBtn} toggle ${headerStyles[darkMode.toString()]}`} onClick={toggleMode}>
                             <div />
                         </button>
+                        <div className={headerStyles.themeBtnDark}>
+                            <IoMoon />
+                        </div>
                     </div>
                 </nav>
             </div>
