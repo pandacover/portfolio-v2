@@ -10,6 +10,13 @@ type WorkType = Array<WorkInterface>;
 
 const WorkItems: WorkType = [
     {
+        name: 'Void List',
+        details: 'Void List is a todo-list web application created with MERN stack and tailwindcss. You can create, edit and delete a task. When you authenticate for the first time, you are given a customize avatar which is randamized.',
+        live: 'https://voidtodo.herokuapp.com/',
+        source: 'https://github.com/pandacover/void-todo',
+        tech: ["React.js", "Node.js", "Express.js", "MongoDb", "Redux", "Tailwindcss"]
+    },
+    {
         name: "Goal Setter",
         details: "GoalSetter is a personal goal setting application created with MERN stack. GoalSetter lets you create, edit, update and delete your personal goals only while keeping you and others away from manipulating else's goals.",
         live: "https://goalsetterluv.herokuapp.com/",

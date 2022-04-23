@@ -17,7 +17,13 @@ const Work: React.FC<{ darkMode: boolean }> = ({ darkMode }) => {
             <h3>Some of my projects</h3>
             <div className={`${workStyles.projects} flex`}>
                 {WorkItems.map((item: Props, index: number) => (
-                    <Card key={index} item={item} darkMode={darkMode} />
+                    <> {
+                        index === 0 ?
+                            <Card key={index} item={item} darkMode={darkMode} info='Please use "test@gmail.com" as a test email and "1234" as its password to login if you don&apos;t want to register.' />
+                            :
+                            <Card key={index} item={item} darkMode={darkMode} />
+                    }
+                    </>
                 ))}
             </div>
         </div>

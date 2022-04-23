@@ -7,16 +7,17 @@ interface Props {
     details: string,
     live: string,
     source: string,
-    tech: string[]
+    tech: string[],
 }
 
-const Card: React.FC<{ item: Props, darkMode: boolean }> = ({ item: { name, details, live, source, tech }, darkMode }) => {
+const Card: React.FC<{ item: Props, darkMode: boolean, info?: string }> = ({ item: { name, details, live, source, tech }, darkMode, info }) => {
     return (
         <div className={`${cardStyles.container} ${cardStyles[darkMode.toString()]}`}>
             <h1>{name}</h1>
             <p>
                 {details}
             </p>
+            {info && <p className={cardStyles.info}>{info}</p>}
             <ul className={`${cardStyles["card-list"]} flex`}>
                 {tech.map((item: string, index: number) => (
                     <li key={index} className="li">{item}</li>

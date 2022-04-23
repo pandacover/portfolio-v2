@@ -28,7 +28,7 @@ const About: React.FC<{ darkMode: boolean }> = ({ darkMode }) => {
                     <Link href="https://www.linkedin.com/in/luv-makin-19a151209/">
                         <a><FaLinkedin /></a>
                     </Link>
-                    <Link href="https://pandacover.github.io/my-portfolio/static/media/Resume.b4947bed.pdf">
+                    <Link href="/resume">
                         <a>Resume</a>
                     </Link>
                 </figure>
